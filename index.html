@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prime Haven Properties | Houses, Rentals, Shortlets &amp; Land in Lagos</title>
+<meta name="description" content="Prime Haven Properties helps you buy, rent or shortlet verified homes in Lekki, Ajah, Ikeja and Victoria Island, Lagos. Find your dream home in Lagos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ---------- Tokens ---------- */
+:root {
+  --navy: #0A1931;
+  --navy-2: #12264a;
+  --navy-3: #1b3560;
+  --white: #FFFFFF;
+  --gold: #D4AF37;
+  --gold-deep: #b8932a;
+  --gray: #F5F5F5;
+  --gray-line: #e4e6ea;
+  --ink: #1b2433;
+  --muted: #5f6b7d;
+  --radius: 16px;
+  --shadow: 0 20px 44px -26px rgba(10, 25, 49, .55);
+  --header-h: 78px;
+  --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --sans: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: calc(var(--header-h) + 8px); }
+body { margin: 0; font-family: var(--sans); line-height: 1.7; color: var(--ink); background: var(--white); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3, h4 { font-family: var(--serif); line-height: 1.18; margin: 0 0 .55em; font-weight: 600; color: var(--navy); }
+p { margin: 0 0 1em; }
+ul { margin: 0; padding: 0; list-style: none; }
+button { font-family: inherit; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+.container { width: min(1200px, 100% - 2.5rem); margin-inline: auto; }
+.band { padding: clamp(4rem, 8vw, 6.5rem) 0; }
+.band-gray { background: var(--gray); }
+.section-head { max-width: 680px; margin-bottom: clamp(2rem, 4vw, 3rem); }
+.section-head.center { margin-inline: auto; text-align: center; }
+.section-head h2 { font-size: clamp(2rem, 4.2vw, 2.9rem); }
+.section-head p { color: var(--muted); margin: 0; }
+.gold-bar { display: block; width: 56px; height: 4px; border-radius: 4px; background: var(--gold); margin-bottom: 1.1rem; }
+.center .gold-bar { margin-inline: auto; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- Buttons ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .85rem 1.6rem; border-radius: 12px; border: 2px solid transparent; font: 500 .95rem/1 var(--sans); text-decoration: none; cursor: pointer; transition: transform .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn-gold { background: var(--gold); color: var(--navy); }
+.btn-gold:hover { background: #e3c04e; }
+.btn-navy { background: var(--navy); color: var(--white); }
+.btn-navy:hover { background: var(--navy-3); }
+.btn-ghost { background: transparent; color: var(--navy); border-color: var(--navy); }
+.btn-ghost:hover { background: var(--navy); color: var(--white); }
+.btn-ghost-light { background: transparent; color: var(--white); border-color: rgba(255,255,255,.7); }
+.btn-ghost-light:hover { background: var(--white); color: var(--navy); }
+.btn svg { width: 18px; height: 18px; }
+
+/* ---------- Header ---------- */
+.site-header { position: sticky; top: 0; z-index: 50; height: var(--header-h); background: rgba(255,255,255,.96); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid transparent; transition: box-shadow .25s ease, border-color .25s ease; }
+.site-header.scrolled { border-bottom-color: var(--gray-line); box-shadow: 0 12px 28px -24px rgba(10,25,49,.7); }
+.header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+.logo { display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; font-family: var(--serif); font-weight: 700; font-size: 1.6rem; color: var(--navy); }
+.logo-mark { width: 38px; height: 38px; border-radius: 10px; background: var(--navy); display: grid; place-items: center; flex: none; }
+.logo-mark svg { width: 22px; height: 22px; fill: none; stroke: var(--gold); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.nav-list { display: flex; align-items: center; gap: 2rem; }
+.nav-list a:not(.btn) { text-decoration: none; font-weight: 500; font-size: .95rem; color: var(--ink); padding: .3rem 0; position: relative; }
+.nav-list a:not(.btn)::after { content: ""; position: absolute; left: 0; bottom: -2px; height: 2px; width: 100%; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+.nav-list a:not(.btn):hover::after { transform: scaleX(1); }
+.nav-list .btn { padding: .7rem 1.3rem; font-size: .9rem; }
+.menu-toggle { display: none; width: 46px; height: 46px; border: 0; border-radius: 12px; background: transparent; cursor: pointer; padding: 0; position: relative; }
+.menu-toggle span { position: absolute; left: 11px; right: 11px; height: 2px; background: var(--navy); border-radius: 2px; transition: transform .25s ease, opacity .2s ease, top .25s ease; }
+.menu-toggle span:nth-child(1) { top: 16px; }
+.menu-toggle span:nth-child(2) { top: 22px; }
+.menu-toggle span:nth-child(3) { top: 28px; }
+.menu-toggle[aria-expanded="true"] span:nth-child(1) { top: 22px; transform: rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-toggle[aria-expanded="true"] span:nth-child(3) { top: 22px; transform: rotate(-45deg); }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; color: var(--white); background: var(--navy); overflow: hidden; padding: clamp(3.5rem, 8vw, 6.5rem) 0 clamp(7rem, 12vw, 9.5rem); }
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: .55; }
+.hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, var(--navy) 22%, rgba(10,25,49,.82) 58%, rgba(10,25,49,.5) 100%); }
+.skyline { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; width: 100%; height: 150px; fill: rgba(255,255,255,.07); pointer-events: none; }
+.hero-copy { position: relative; z-index: 2; max-width: 760px; }
+.hero .tag { display: inline-block; font-size: .9rem; padding: .35rem 1rem; border-radius: 999px; border: 1px solid rgba(212,175,55,.7); color: var(--gold); margin-bottom: 1.4rem; }
+.hero h1 { color: var(--white); font-size: clamp(2.6rem, 6.4vw, 4.8rem); font-weight: 700; letter-spacing: -.01em; margin-bottom: .45em; }
+.hero p.sub { max-width: 560px; color: rgba(255,255,255,.82); font-weight: 300; font-size: 1.1rem; margin: 0; }
+
+/* Search card */
+.search-wrap { position: relative; z-index: 5; margin-top: -4.6rem; }
+.search-card { background: var(--white); border-radius: 20px; box-shadow: 0 30px 60px -30px rgba(10,25,49,.65); padding: 1.4rem; display: grid; grid-template-columns: 1fr 1fr 1.3fr auto; gap: 1rem; align-items: end; border-top: 4px solid var(--gold); }
+.s-field label, .s-field .lbl { display: flex; justify-content: space-between; font-size: .82rem; font-weight: 500; color: var(--muted); margin-bottom: .4rem; }
+.s-field .lbl output { color: var(--navy); font-weight: 600; }
+.s-field select { width: 100%; font: 500 .98rem var(--sans); color: var(--navy); background: var(--gray); border: 1.5px solid transparent; border-radius: 12px; padding: .8rem .9rem; cursor: pointer; transition: border-color .2s ease; }
+.s-field select:focus { outline: none; border-color: var(--gold); }
+.slider-box { background: var(--gray); border-radius: 12px; padding: .8rem 1rem; height: 50px; display: flex; align-items: center; }
+input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 6px; background: linear-gradient(90deg, var(--gold) var(--fill, 100%), #d3d7de var(--fill, 100%)); outline: none; }
+input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--navy); border: 3px solid var(--gold); cursor: pointer; }
+input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--navy); border: 3px solid var(--gold); cursor: pointer; }
+input[type="range"]:disabled { opacity: .45; }
+input[type="range"]:disabled::-webkit-slider-thumb { cursor: not-allowed; }
+.search-card .btn { height: 50px; padding-inline: 2rem; }
+
+/* ---------- Properties ---------- */
+.prop-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.prop-head .section-head { margin: 0; }
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1rem; margin-bottom: 1.6rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.chip { border: 1.5px solid var(--gray-line); background: var(--white); color: var(--navy); border-radius: 999px; padding: .5rem 1.15rem; font: 500 .88rem var(--sans); cursor: pointer; transition: all .2s ease; }
+.chip:hover { border-color: var(--navy); }
+.chip[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--white); }
+.chip.saved[aria-pressed="true"] { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+.chip .count { opacity: .75; margin-left: .25rem; }
+.kw { margin-left: auto; position: relative; flex: 1 1 240px; max-width: 340px; }
+.kw svg { position: absolute; left: .9rem; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; stroke: var(--muted); fill: none; stroke-width: 2; stroke-linecap: round; }
+.kw input { width: 100%; font: 400 .95rem var(--sans); padding: .7rem 1rem .7rem 2.6rem; border-radius: 12px; border: 1.5px solid var(--gray-line); background: var(--white); color: var(--ink); transition: border-color .2s ease, box-shadow .2s ease; }
+.kw input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212,175,55,.25); }
+.result-note { font-size: .92rem; color: var(--muted); margin-bottom: 1.2rem; }
+
+.prop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
+.card { background: var(--white); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--gray-line); display: flex; flex-direction: column; transition: box-shadow .25s ease, transform .25s ease; }
+.card:hover { box-shadow: var(--shadow); transform: translateY(-5px); }
+.photo { all: unset; position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; cursor: zoom-in; background: var(--navy-2); width: 100%; }
+.photo:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; }
+.photo .img { display: block; width: 100%; height: 100%; }
+.photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.photo:hover img { transform: scale(1.06); }
+.img.noimg { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-3) 60%, var(--gold-deep) 160%); }
+.badge { position: absolute; left: 14px; top: 14px; padding: .3rem .85rem; border-radius: 999px; font-size: .78rem; font-weight: 600; z-index: 2; }
+.badge.sale { background: var(--navy); color: var(--white); }
+.badge.rent { background: var(--gold); color: var(--navy); }
+.badge.shortlet { background: var(--white); color: var(--navy); }
+.photo-count { position: absolute; left: 14px; bottom: 14px; z-index: 2; background: rgba(10,25,49,.78); color: var(--white); font-size: .76rem; padding: .25rem .7rem; border-radius: 999px; }
+.fav { position: absolute; right: 12px; top: 12px; z-index: 3; width: 42px; height: 42px; border-radius: 50%; border: 0; background: rgba(255,255,255,.95); cursor: pointer; display: grid; place-items: center; box-shadow: 0 8px 18px -8px rgba(10,25,49,.6); transition: transform .2s ease; }
+.fav:hover { transform: scale(1.1); }
+.fav svg { width: 21px; height: 21px; fill: none; stroke: var(--navy); stroke-width: 2; stroke-linejoin: round; transition: fill .2s ease, stroke .2s ease; }
+.fav[aria-pressed="true"] svg { fill: #d63a4a; stroke: #d63a4a; }
+.card-body { padding: 1.3rem 1.4rem 1.4rem; display: flex; flex-direction: column; gap: .35rem; flex: 1; }
+.price { font-family: var(--serif); font-size: 1.65rem; font-weight: 700; color: var(--navy); line-height: 1.2; }
+.price small { font-family: var(--sans); font-size: .85rem; font-weight: 400; color: var(--muted); }
+.card h3 { font-family: var(--sans); font-size: 1.02rem; font-weight: 600; margin: 0; color: var(--ink); }
+.loc { display: flex; align-items: center; gap: .35rem; font-size: .9rem; color: var(--muted); }
+.loc svg { width: 16px; height: 16px; stroke: var(--gold-deep); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.meta { display: flex; gap: 1.2rem; flex-wrap: wrap; padding: .9rem 0; margin: .5rem 0 .2rem; border-top: 1px solid var(--gray-line); border-bottom: 1px solid var(--gray-line); font-size: .88rem; color: var(--ink); }
+.meta span { display: inline-flex; align-items: center; gap: .4rem; }
+.meta svg { width: 18px; height: 18px; stroke: var(--navy); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.card .enquire { margin-top: auto; align-self: flex-start; padding-top: .8rem; font-weight: 500; font-size: .92rem; color: var(--navy); text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 2px; margin-top: .8rem; }
+.card .enquire:hover { color: var(--navy-3); }
+.empty { grid-column: 1 / -1; text-align: center; padding: 3.5rem 1.5rem; background: var(--gray); border-radius: var(--radius); }
+.empty h3 { font-size: 1.5rem; }
+.empty p { color: var(--muted); max-width: 440px; margin: 0 auto 1.4rem; }
+.empty .row { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+
+/* ---------- Why us ---------- */
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
+.why-card { background: var(--white); border-radius: var(--radius); padding: 2.1rem 1.8rem; border: 1px solid var(--gray-line); }
+.why-card .ico { width: 58px; height: 58px; border-radius: 14px; background: var(--navy); display: grid; place-items: center; margin-bottom: 1.3rem; }
+.why-card .ico svg { width: 28px; height: 28px; stroke: var(--gold); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.why-card h3 { font-size: 1.4rem; }
+.why-card p { margin: 0; color: var(--muted); font-size: .96rem; }
+
+/* ---------- Types ---------- */
+.types-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.3rem; }
+.type { all: unset; box-sizing: border-box; position: relative; display: block; aspect-ratio: 3 / 4; border-radius: var(--radius); overflow: hidden; cursor: pointer; background: var(--navy-2); }
+.type:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.type .img { position: absolute; inset: 0; }
+.type img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.type:hover img { transform: scale(1.07); }
+.type::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,25,49,0) 40%, rgba(10,25,49,.92) 100%); }
+.type-text { position: absolute; left: 1.3rem; right: 1.3rem; bottom: 1.2rem; z-index: 2; color: var(--white); }
+.type-text strong { display: block; font-family: var(--serif); font-size: 1.5rem; font-weight: 600; line-height: 1.2; }
+.type-text span { font-size: .88rem; color: var(--gold); }
+
+/* ---------- Agents ---------- */
+.agents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
+.agent { background: var(--white); border: 1px solid var(--gray-line); border-radius: var(--radius); overflow: hidden; text-align: center; }
+.agent .pic { aspect-ratio: 1 / 1; background: var(--navy-2); }
+.agent .pic .img { display: block; width: 100%; height: 100%; }
+.agent .pic img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.agent .img.noimg { display: grid; place-items: center; color: var(--gold); font: 700 3.5rem var(--serif); }
+.agent-body { padding: 1.4rem 1.4rem 1.6rem; }
+.agent h3 { font-size: 1.35rem; margin-bottom: .2em; }
+.agent .role { color: var(--muted); font-size: .9rem; margin: 0 0 1rem; }
+.agent .phone { display: inline-block; font-weight: 600; color: var(--navy); text-decoration: none; margin-bottom: 1.1rem; }
+.agent .phone:hover { color: var(--gold-deep); }
+.agent .btn { width: 100%; padding: .75rem; font-size: .9rem; }
+
+/* ---------- Testimonials ---------- */
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.quote { margin: 0; background: var(--white); border-radius: var(--radius); padding: 2rem 1.8rem; border: 1px solid var(--gray-line); display: flex; flex-direction: column; gap: 1rem; }
+.stars { color: var(--gold); letter-spacing: .15em; }
+.quote blockquote { margin: 0; font-family: var(--serif); font-size: 1.1rem; line-height: 1.65; color: var(--ink); }
+.quote figcaption { margin-top: auto; display: flex; align-items: center; gap: .9rem; font-size: .88rem; color: var(--muted); }
+.avatar { width: 46px; height: 46px; border-radius: 50%; background: var(--navy); color: var(--gold); display: grid; place-items: center; font: 600 1.1rem var(--serif); flex: none; }
+.quote figcaption strong { display: block; color: var(--navy); font-weight: 600; }
+
+/* ---------- CTA ---------- */
+.cta { background: var(--navy); color: var(--white); position: relative; overflow: hidden; padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
+.cta::before { content: ""; position: absolute; right: -120px; top: -120px; width: 420px; height: 420px; border-radius: 50%; border: 2px solid rgba(212,175,55,.35); }
+.cta::after { content: ""; position: absolute; right: -40px; top: -40px; width: 260px; height: 260px; border-radius: 50%; border: 2px solid rgba(212,175,55,.2); }
+.cta-inner { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.cta h2 { color: var(--white); font-size: clamp(2rem, 4.4vw, 3.1rem); max-width: 640px; margin-bottom: .4em; }
+.cta p { color: rgba(255,255,255,.82); font-weight: 300; margin: 0; max-width: 520px; }
+.cta-actions { display: flex; gap: .9rem; flex-wrap: wrap; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: #07122a; color: rgba(255,255,255,.74); padding: 4.2rem 0 0; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.3fr; gap: 2.5rem; padding-bottom: 3rem; }
+.site-footer .logo { color: var(--white); margin-bottom: 1rem; }
+.site-footer .logo-mark { background: var(--navy-2); }
+.site-footer h4 { font-family: var(--serif); color: var(--white); font-size: 1.15rem; margin-bottom: 1rem; }
+.site-footer p { font-size: .93rem; font-weight: 300; max-width: 320px; }
+.f-links { display: grid; gap: .55rem; font-size: .93rem; }
+.f-links a { text-decoration: none; transition: color .2s ease; }
+.f-links a:hover { color: var(--gold); }
+.f-contact li { display: flex; gap: .75rem; font-size: .93rem; margin-bottom: .85rem; align-items: flex-start; }
+.f-contact svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; margin-top: 4px; }
+.f-contact a { text-decoration: none; }
+.f-contact a:hover { color: var(--gold); }
+.f-wa { display: inline-flex; align-items: center; gap: .55rem; margin-top: .4rem; padding: .7rem 1.2rem; border-radius: 12px; background: #25D366; color: #fff; font-weight: 500; font-size: .92rem; text-decoration: none; }
+.f-wa svg { width: 20px; height: 20px; fill: #fff; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.12); padding: 1.3rem 0; text-align: center; font-size: .85rem; }
+
+/* ---------- WhatsApp float ---------- */
+.wa-float { position: fixed; right: 20px; bottom: 20px; z-index: 60; width: 60px; height: 60px; border-radius: 50%; background: #25D366; display: grid; place-items: center; box-shadow: 0 14px 28px -10px rgba(0,0,0,.55); transition: transform .2s ease; }
+.wa-float:hover { transform: scale(1.08); }
+.wa-float svg { width: 32px; height: 32px; fill: #fff; }
+
+/* ---------- Lightbox ---------- */
+.lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(5,12,28,.94); display: none; align-items: center; justify-content: center; padding: 1.5rem; }
+.lightbox.open { display: flex; }
+.lightbox figure { margin: 0; max-width: min(1000px, 100%); text-align: center; }
+.lightbox img { max-height: 76vh; width: auto; margin: 0 auto; border-radius: 12px; border: 2px solid var(--gold); }
+.lightbox figcaption { color: var(--white); margin-top: 1rem; font-size: 1rem; }
+.lightbox figcaption strong { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; }
+.lightbox figcaption span { color: var(--gold); margin-left: .6rem; }
+.lb-btn { position: absolute; background: rgba(255,255,255,.1); border: 1px solid rgba(212,175,55,.6); color: var(--white); width: 48px; height: 48px; border-radius: 50%; font-size: 1.6rem; cursor: pointer; display: grid; place-items: center; transition: background-color .2s ease; }
+.lb-btn:hover { background: rgba(212,175,55,.35); }
+.lb-btn[hidden] { display: none; }
+.lb-close { top: 18px; right: 18px; }
+.lb-prev { left: 18px; top: 50%; transform: translateY(-50%); }
+.lb-next { right: 18px; top: 50%; transform: translateY(-50%); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1040px) {
+  .search-card { grid-template-columns: 1fr 1fr; }
+  .search-card .btn { grid-column: 1 / -1; width: 100%; }
+  .prop-grid { grid-template-columns: repeat(2, 1fr); }
+  .types-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 860px) {
+  .menu-toggle { display: block; }
+  .nav { position: absolute; top: var(--header-h); left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--gray-line); box-shadow: 0 24px 30px -24px rgba(10,25,49,.6); display: none; }
+  .nav.open { display: block; }
+  .nav-list { flex-direction: column; align-items: stretch; gap: 0; padding: .6rem 1.25rem 1.4rem; }
+  .nav-list li { border-bottom: 1px solid var(--gray-line); }
+  .nav-list li:last-child { border-bottom: 0; padding-top: 1rem; }
+  .nav-list a:not(.btn) { display: block; padding: .9rem 0; }
+  .nav-list a:not(.btn)::after { display: none; }
+  .why-grid, .agents-grid, .quotes { grid-template-columns: 1fr; }
+  .agents-grid, .why-grid, .quotes { max-width: 520px; margin-inline: auto; }
+  .kw { margin-left: 0; max-width: none; flex-basis: 100%; }
+}
+@media (max-width: 620px) {
+  .search-card { grid-template-columns: 1fr; padding: 1.1rem; }
+  .prop-grid { grid-template-columns: 1fr; }
+  .types-grid { grid-template-columns: 1fr 1fr; gap: .9rem; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .cta-actions .btn { flex: 1 1 100%; }
+  .lb-prev, .lb-next { top: auto; bottom: 20px; transform: none; }
+  .lb-prev { left: calc(50% - 60px); }
+  .lb-next { right: calc(50% - 60px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a href="#top" class="logo" id="logo" aria-label="Prime Haven Properties, home">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span>
+      Prime Haven
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav" aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#properties">Properties</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#agents">Agents</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="btn btn-gold" href="https://wa.me/2348000000000?text=Hello%20Prime%20Haven%2C%20I%27d%20like%20to%20list%20a%20property." data-wa target="_blank" rel="noopener">+ List Property</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1618828665011-0abd973f7bb8?auto=format&fit=crop&w=1800&q=80" alt="" fetchpriority="high">
+  </div>
+  <svg class="skyline" viewBox="0 0 1200 150" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 150V110h40V80h30v30h25V60h35v50h30V90h20V40h40v70h25V70h35v40h30V95h25V30h45v80h30V75h30v35h40V55h35v55h30V85h25V45h40v65h30V90h35v20h30V65h30v45h40V80h25V35h40v75h30V95h35v15h40V70h30v40h35V100h30v50z"/>
+  </svg>
+  <div class="container">
+    <div class="hero-copy">
+      <span class="tag">Lekki &middot; Ajah &middot; Ikeja &middot; Victoria Island</span>
+      <h1 id="hero-title">Find Your Dream Home in Lagos</h1>
+      <p class="sub">Browse verified houses, rentals, shortlets and land from agents you can call today. Real listings, honest prices, and people who pick up the phone.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Search -->
+<div class="search-wrap">
+  <div class="container">
+    <form class="search-card" id="searchForm" role="search" aria-label="Search properties">
+      <div class="s-field">
+        <label for="fLoc">Location</label>
+        <select id="fLoc">
+          <option value="all">All locations</option>
+          <option>Lekki</option>
+          <option>Ajah</option>
+          <option>Ikeja</option>
+          <option>Victoria Island</option>
+        </select>
+      </div>
+      <div class="s-field">
+        <label for="fType">Property type</label>
+        <select id="fType">
+          <option value="all">Sale, Rent or Shortlet</option>
+          <option value="sale">For Sale</option>
+          <option value="rent">For Rent</option>
+          <option value="shortlet">Shortlet</option>
+        </select>
+      </div>
+      <div class="s-field">
+        <div class="lbl"><span id="budgetLabel">Budget</span><output id="budgetOut" for="fBudget">Choose a type first</output></div>
+        <div class="slider-box"><input type="range" id="fBudget" aria-labelledby="budgetLabel" min="0" max="100" step="1" value="100" disabled></div>
+      </div>
+      <button type="submit" class="btn btn-navy">Search</button>
+    </form>
+  </div>
+</div>
+
+<!-- ============ FEATURED PROPERTIES ============ -->
+<section class="band" id="properties" aria-labelledby="prop-title">
+  <div class="container">
+    <div class="section-head">
+      <span class="gold-bar"></span>
+      <h2 id="prop-title">Featured properties</h2>
+      <p>Hand-picked homes across Lagos. Save the ones you like and we'll keep them here for you on this device.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="chips" role="group" aria-label="Filter by listing type">
+        <button class="chip" type="button" data-type="all" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-type="sale" aria-pressed="false">For Sale</button>
+        <button class="chip" type="button" data-type="rent" aria-pressed="false">For Rent</button>
+        <button class="chip" type="button" data-type="shortlet" aria-pressed="false">Shortlet</button>
+        <button class="chip saved" type="button" id="savedChip" aria-pressed="false">Saved<span class="count" id="savedCount">(0)</span></button>
+      </div>
+      <div class="kw">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <label class="sr-only" for="kw">Search listings</label>
+        <input type="search" id="kw" placeholder="Search by area, type or keyword" autocomplete="off">
+      </div>
+    </div>
+
+    <p class="result-note" id="resultNote" aria-live="polite"></p>
+    <div class="prop-grid" id="propGrid"></div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section class="band band-gray" id="about" aria-labelledby="why-title">
+  <div class="container">
+    <div class="section-head center">
+      <span class="gold-bar"></span>
+      <h2 id="why-title">Why people trust Prime Haven</h2>
+      <p>Buying or renting in Lagos should not feel risky. Here is how we protect you.</p>
+    </div>
+    <div class="why-grid">
+      <article class="why-card">
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg></div>
+        <h3>Verified Listings</h3>
+        <p>Our team visits every property and checks the documents before it goes live. What you see is what exists.</p>
+      </article>
+      <article class="why-card">
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></div>
+        <h3>No Scam</h3>
+        <p>You only pay into verified company accounts, with receipts and signed agreements. No fake agents and no surprise fees.</p>
+      </article>
+      <article class="why-card">
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg></div>
+        <h3>Flexible Payment</h3>
+        <p>Spread your payment on selected homes and land with a plan that fits your income, agreed in writing up front.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROPERTY TYPES ============ -->
+<section class="band" aria-labelledby="types-title">
+  <div class="container">
+    <div class="section-head center">
+      <span class="gold-bar"></span>
+      <h2 id="types-title">Browse by property type</h2>
+      <p>Pick a category to see matching listings.</p>
+    </div>
+    <div class="types-grid" id="typesGrid">
+      <button type="button" class="type" data-kind="duplex">
+        <span class="img"><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"></span>
+        <span class="type-text"><strong>Duplex</strong><span data-count></span></span>
+      </button>
+      <button type="button" class="type" data-kind="bungalow">
+        <span class="img"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"></span>
+        <span class="type-text"><strong>Bungalow</strong><span data-count></span></span>
+      </button>
+      <button type="button" class="type" data-kind="land">
+        <span class="img"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"></span>
+        <span class="type-text"><strong>Land</strong><span data-count></span></span>
+      </button>
+      <button type="button" class="type" data-kind="shortlet">
+        <span class="img"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"></span>
+        <span class="type-text"><strong>Shortlet</strong><span data-count></span></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AGENTS ============ -->
+<section class="band band-gray" id="agents" aria-labelledby="agents-title">
+  <div class="container">
+    <div class="section-head center">
+      <span class="gold-bar"></span>
+      <h2 id="agents-title">Meet our agents</h2>
+      <p>Call or message an agent directly. They know the streets, the prices and the paperwork.</p>
+    </div>
+    <div class="agents-grid">
+      <article class="agent">
+        <div class="pic"><span class="img" data-initial="C"><img src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&w=700&q=80" alt="Portrait of Chidi Okeke" loading="lazy"></span></div>
+        <div class="agent-body">
+          <h3>Chidi Okeke</h3>
+          <p class="role">Senior Sales Agent, Lekki &amp; Ajah</p>
+          <a class="phone" href="tel:+2348000000001">+234 800 000 0001</a>
+          <a class="btn btn-ghost" data-wa-agent="Chidi Okeke" href="https://wa.me/2348000000000" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+      </article>
+      <article class="agent">
+        <div class="pic"><span class="img" data-initial="A"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=80" alt="Portrait of Amaka Bello" loading="lazy"></span></div>
+        <div class="agent-body">
+          <h3>Amaka Bello</h3>
+          <p class="role">Rentals &amp; Shortlets, Victoria Island</p>
+          <a class="phone" href="tel:+2348000000002">+234 800 000 0002</a>
+          <a class="btn btn-ghost" data-wa-agent="Amaka Bello" href="https://wa.me/2348000000000" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+      </article>
+      <article class="agent">
+        <div class="pic"><span class="img" data-initial="T"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=700&q=80" alt="Portrait of Tunde Adeyemi" loading="lazy"></span></div>
+        <div class="agent-body">
+          <h3>Tunde Adeyemi</h3>
+          <p class="role">Land &amp; Property Management, Ikeja</p>
+          <a class="phone" href="tel:+2348000000003">+234 800 000 0003</a>
+          <a class="btn btn-ghost" data-wa-agent="Tunde Adeyemi" href="https://wa.me/2348000000000" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="band" id="testimonials" aria-labelledby="testi-title">
+  <div class="container">
+    <div class="section-head center">
+      <span class="gold-bar"></span>
+      <h2 id="testi-title">Clients who found their place</h2>
+      <p>Real homes, real keys, real people.</p>
+    </div>
+    <div class="quotes">
+      <figure class="quote">
+        <div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>I was nervous about buying from abroad. They sent video tours, showed me the documents and I closed on my Lekki duplex without any stress.</blockquote>
+        <figcaption><span class="avatar" aria-hidden="true">O</span><span><strong>Olumide F.</strong>Bought a duplex in Lekki</span></figcaption>
+      </figure>
+      <figure class="quote">
+        <div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>Three viewings in one afternoon and I signed the next day. No hidden agent fees, and the apartment was exactly as listed.</blockquote>
+        <figcaption><span class="avatar" aria-hidden="true">N</span><span><strong>Ngozi E.</strong>Rented in Victoria Island</span></figcaption>
+      </figure>
+      <figure class="quote">
+        <div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>I listed my Ikeja flat and had a verified tenant in six days. They handled the screening and the agreement for me.</blockquote>
+        <figcaption><span class="avatar" aria-hidden="true">B</span><span><strong>Babatunde S.</strong>Landlord, Ikeja</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta" aria-labelledby="cta-title">
+  <div class="container cta-inner">
+    <div>
+      <h2 id="cta-title">List Your Property With Us - Get Tenants in 7 Days</h2>
+      <p>We photograph, advertise and screen enquiries, so you meet only serious, verified tenants and buyers.</p>
+    </div>
+    <div class="cta-actions">
+      <a class="btn btn-gold" href="https://wa.me/2348000000000?text=Hello%20Prime%20Haven%2C%20I%27d%20like%20to%20list%20a%20property." data-wa target="_blank" rel="noopener">List your property</a>
+      <a class="btn btn-ghost-light" href="tel:+2348000000000">Call us</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer" id="contact">
+  <div class="container footer-grid">
+    <div>
+      <a href="#top" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span>Prime Haven</a>
+      <p>Prime Haven Properties. House sales, rentals, shortlet apartments, land sales and property management in Lagos, Nigeria.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul class="f-links">
+        <li><a href="#properties">Properties</a></li>
+        <li><a href="#about">About us</a></li>
+        <li><a href="#agents">Agents</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Areas we cover</h4>
+      <ul class="f-links">
+        <li>Lekki</li>
+        <li>Ajah</li>
+        <li>Ikeja</li>
+        <li>Victoria Island</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact us</h4>
+      <ul class="f-contact">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span>25 Example Avenue, Lekki Phase 1, Lagos, Nigeria</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><a href="tel:+2348000000000">+234 800 000 0000</a></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:hello@primehaven.example">hello@primehaven.example</a></li>
+      </ul>
+      <a class="f-wa" href="https://wa.me/2348000000000" data-wa target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.04 3C8.84 3 3 8.8 3 15.96c0 2.28.6 4.5 1.74 6.46L3 29l6.76-1.7a13.1 13.1 0 0 0 6.28 1.6C23.2 28.9 29 23.1 29 15.96 29 8.8 23.2 3 16.04 3zm0 23.7c-1.96 0-3.88-.52-5.56-1.5l-.4-.24-4.02 1.02 1.06-3.9-.26-.4a10.6 10.6 0 0 1-1.64-5.7c0-5.9 4.82-10.7 10.82-10.7 5.9 0 10.7 4.8 10.7 10.7s-4.8 10.72-10.7 10.72zm5.9-8c-.32-.16-1.9-.94-2.2-1.04-.3-.1-.5-.16-.72.16-.22.32-.84 1.04-1.02 1.26-.2.2-.38.24-.7.08-1.9-.94-3.14-1.7-4.4-3.84-.34-.58.34-.54.96-1.8.1-.2.06-.4-.02-.56-.08-.16-.72-1.74-1-2.38-.26-.62-.52-.54-.72-.54h-.6c-.2 0-.56.08-.84.4-.3.32-1.12 1.1-1.12 2.68s1.14 3.1 1.3 3.32c.16.2 2.26 3.44 5.46 4.84 2.02.88 2.82.96 3.84.8.62-.1 1.9-.78 2.16-1.52.26-.76.26-1.4.18-1.54-.08-.14-.3-.22-.62-.38z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; <span id="year">2026</span> Prime Haven Properties. All rights reserved.</div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a class="wa-float" href="https://wa.me/2348000000000?text=Hello%20Prime%20Haven%2C%20I%27d%20like%20to%20make%20an%20enquiry." data-wa target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.04 3C8.84 3 3 8.8 3 15.96c0 2.28.6 4.5 1.74 6.46L3 29l6.76-1.7a13.1 13.1 0 0 0 6.28 1.6C23.2 28.9 29 23.1 29 15.96 29 8.8 23.2 3 16.04 3zm0 23.7c-1.96 0-3.88-.52-5.56-1.5l-.4-.24-4.02 1.02 1.06-3.9-.26-.4a10.6 10.6 0 0 1-1.64-5.7c0-5.9 4.82-10.7 10.82-10.7 5.9 0 10.7 4.8 10.7 10.7s-4.8 10.72-10.7 10.72zm5.9-8c-.32-.16-1.9-.94-2.2-1.04-.3-.1-.5-.16-.72.16-.22.32-.84 1.04-1.02 1.26-.2.2-.38.24-.7.08-1.9-.94-3.14-1.7-4.4-3.84-.34-.58.34-.54.96-1.8.1-.2.06-.4-.02-.56-.08-.16-.72-1.74-1-2.38-.26-.62-.52-.54-.72-.54h-.6c-.2 0-.56.08-.84.4-.3.32-1.12 1.1-1.12 2.68s1.14 3.1 1.3 3.32c.16.2 2.26 3.44 5.46 4.84 2.02.88 2.82.96 3.84.8.62-.1 1.9-.78 2.16-1.52.26-.76.26-1.4.18-1.54-.08-.14-.3-.22-.62-.38z"/></svg>
+</a>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Property photo viewer">
+  <button class="lb-btn lb-close" id="lbClose" type="button" aria-label="Close">&times;</button>
+  <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="Previous photo">&#8249;</button>
+  <figure>
+    <img id="lbImg" src="" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+  <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Next photo">&#8250;</button>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------- Settings: change to your real number ---------- */
+  var WHATSAPP_NUMBER = "2348000000000"; // country code + number, no "+" or spaces
+  var waBase = "https://wa.me/" + WHATSAPP_NUMBER;
+
+  /* ---------- Listings (edit, add or remove freely) ---------- */
+  var U = function (id) { return "https://images.unsplash.com/photo-" + id + "?auto=format&fit=crop&w=1000&q=80"; };
+  var PROPERTIES = [
+    { id: 1, title: "Luxury 4-Bedroom Detached Duplex", loc: "Lekki", area: "Lekki Phase 1", type: "sale", kind: "duplex", price: 185000000, beds: 4, baths: 5, sqm: 420,
+      imgs: [U("1600596542815-ffad4c1539a9"), U("1600607687939-ce8a6c25118c")] },
+    { id: 2, title: "Modern 3-Bedroom Bungalow", loc: "Ajah", area: "Sangotedo, Ajah", type: "sale", kind: "bungalow", price: 75000000, beds: 3, baths: 4, sqm: 280,
+      imgs: [U("1564013799919-ab600027ffc6"), U("1560448204-e02f11c3d0e2")] },
+    { id: 3, title: "Serviced 3-Bedroom Apartment", loc: "Victoria Island", area: "Victoria Island", type: "rent", kind: "apartment", price: 12000000, period: "/yr", beds: 3, baths: 3, sqm: 190,
+      imgs: [U("1545324418-cc1a3fa10c00"), U("1502672260266-1c1ef2d93688")] },
+    { id: 4, title: "Contemporary 3-Bedroom Terrace", loc: "Ikeja", area: "GRA, Ikeja", type: "rent", kind: "duplex", price: 8500000, period: "/yr", beds: 3, baths: 3, sqm: 200,
+      imgs: [U("1613490493576-7fde63acd811"), U("1560448204-e02f11c3d0e2")] },
+    { id: 5, title: "Stylish 2-Bedroom Shortlet", loc: "Lekki", area: "Lekki Phase 1", type: "shortlet", kind: "shortlet", price: 120000, period: "/night", beds: 2, baths: 2, sqm: 110,
+      imgs: [U("1512917774080-9991f1c4c750"), U("1502672260266-1c1ef2d93688")] },
+    { id: 6, title: "Skyline 1-Bedroom Shortlet", loc: "Victoria Island", area: "Victoria Island", type: "shortlet", kind: "shortlet", price: 85000, period: "/night", beds: 1, baths: 1, sqm: 75,
+      imgs: [U("1522708323590-d24dbb6b0267"), U("1545324418-cc1a3fa10c00")] }
+  ];
+  var TYPE_LABEL = { sale: "For Sale", rent: "For Rent", shortlet: "Shortlet" };
+
+  /* Budget slider scales per listing type (naira) */
+  var BUDGET = {
+    sale:     { min: 10000000, max: 500000000, step: 5000000, unit: "" },
+    rent:     { min: 1000000,  max: 30000000,  step: 500000,  unit: "/yr" },
+    shortlet: { min: 30000,    max: 300000,    step: 5000,    unit: "/night" }
+  };
+
+  var state = { type: "all", loc: "all", budget: null, kw: "", kind: "", savedOnly: false };
+
+  /* ---------- Helpers ---------- */
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function naira(n) { return "\u20A6" + Number(n).toLocaleString("en-NG"); }
+  function compact(n) {
+    if (n >= 1000000) return "\u20A6" + (n / 1000000).toFixed(n % 1000000 ? 1 : 0).replace(/\.0$/, "") + "M";
+    if (n >= 1000) return "\u20A6" + Math.round(n / 1000) + "k";
+    return "\u20A6" + n;
+  }
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function waLink(text) { return waBase + (text ? "?text=" + encodeURIComponent(text) : ""); }
+
+  /* ---------- WhatsApp links ---------- */
+  $$("a[data-wa]").forEach(function (a) {
+    var href = a.getAttribute("href") || "";
+    var q = href.indexOf("?");
+    a.setAttribute("href", waBase + (q > -1 ? href.slice(q) : ""));
+  });
+  $$("a[data-wa-agent]").forEach(function (a) {
+    a.setAttribute("href", waLink("Hello Prime Haven, I'd like to speak with " + a.getAttribute("data-wa-agent") + "."));
+  });
+
+  /* ---------- Favourites (localStorage, safe if blocked) ---------- */
+  var FAV_KEY = "primehaven_favs";
+  var favs = [];
+  try { favs = JSON.parse(localStorage.getItem(FAV_KEY)) || []; } catch (e) { favs = []; }
+  if (!Array.isArray(favs)) favs = [];
+  function saveFavs() { try { localStorage.setItem(FAV_KEY, JSON.stringify(favs)); } catch (e) { /* ignore */ } }
+  function isFav(id) { return favs.indexOf(id) > -1; }
+
+  /* ---------- Image fallback ---------- */
+  function wireImages(root) {
+    $$("img", root).forEach(function (img) {
+      function fail() {
+        if (img.parentElement.classList.contains("noimg")) return;
+        img.parentElement.classList.add("noimg");
+        var initial = img.parentElement.getAttribute("data-initial");
+        if (initial) img.parentElement.textContent = initial;
+        else img.style.display = "none";
+      }
+      img.addEventListener("error", fail);
+      if (img.complete && img.naturalWidth === 0 && img.src) fail();
+    });
+  }
+  wireImages(document);
+
+  /* ---------- Icons ---------- */
+  var ICON = {
+    heart: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
+    pin: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+    bed: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19v-8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8"/><path d="M3 15h18"/><path d="M7 9V6h10v3"/></svg>',
+    bath: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M6 12V6a2 2 0 0 1 4 0"/><path d="M7 19l-1 2M17 19l1 2"/></svg>',
+    area: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 15v5h-5M4 4l6 6M20 20l-6-6"/></svg>'
+  };
+
+  /* ---------- Rendering ---------- */
+  var grid = $("#propGrid");
+  var note = $("#resultNote");
+
+  function matches(p) {
+    if (state.savedOnly && !isFav(p.id)) return false;
+    if (state.type !== "all" && p.type !== state.type) return false;
+    if (state.loc !== "all" && p.loc !== state.loc) return false;
+    if (state.kind && p.kind !== state.kind) return false;
+    if (state.budget !== null && p.price > state.budget) return false;
+    if (state.kw) {
+      var hay = [p.title, p.loc, p.area, p.kind, TYPE_LABEL[p.type]].join(" ").toLowerCase();
+      var words = state.kw.toLowerCase().split(/\s+/).filter(Boolean);
+      for (var i = 0; i < words.length; i++) if (hay.indexOf(words[i]) === -1) return false;
+    }
+    return true;
+  }
+
+  function cardHTML(p) {
+    var fav = isFav(p.id);
+    var period = p.period ? "<small>" + p.period + "</small>" : "";
+    var enquiry = "Hello Prime Haven, I'm interested in: " + p.title + " (" + p.area + ", " + naira(p.price) + (p.period || "") + ").";
+    return '' +
+      '<article class="card" data-id="' + p.id + '">' +
+        '<div style="position:relative">' +
+          '<button class="photo" type="button" aria-label="View photos of ' + esc(p.title) + '">' +
+            '<span class="img"><img src="' + p.imgs[0] + '" alt="' + esc(p.title + " in " + p.area) + '" loading="lazy"></span>' +
+            '<span class="badge ' + p.type + '">' + TYPE_LABEL[p.type] + '</span>' +
+            '<span class="photo-count">' + p.imgs.length + ' photos</span>' +
+          '</button>' +
+          '<button class="fav" type="button" aria-pressed="' + fav + '" aria-label="' + (fav ? "Remove " : "Save ") + esc(p.title) + (fav ? " from saved" : " to saved") + '">' + ICON.heart + '</button>' +
+        '</div>' +
+        '<div class="card-body">' +
+          '<div class="price">' + naira(p.price) + period + '</div>' +
+          '<h3>' + esc(p.title) + '</h3>' +
+          '<div class="loc">' + ICON.pin + esc(p.area) + ', Lagos</div>' +
+          '<div class="meta">' +
+            '<span>' + ICON.bed + p.beds + ' Bed' + (p.beds > 1 ? "s" : "") + '</span>' +
+            '<span>' + ICON.bath + p.baths + ' Bath' + (p.baths > 1 ? "s" : "") + '</span>' +
+            '<span>' + ICON.area + p.sqm + ' sqm</span>' +
+          '</div>' +
+          '<a class="enquire" href="' + waLink(enquiry) + '" target="_blank" rel="noopener">Enquire on WhatsApp</a>' +
+        '</div>' +
+      '</article>';
+  }
+
+  function render() {
+    var list = PROPERTIES.filter(matches);
+    if (!list.length) {
+      var msg = state.savedOnly && !favs.length
+        ? "You haven't saved any properties yet. Tap the heart on a listing to keep it here."
+        : (state.kind === "land"
+            ? "We don't have land listed on this page right now, but we often have plots that are not advertised. Message us and we'll check for you."
+            : "Nothing matches those filters right now. Try widening your search, or message us and we'll look for you.");
+      grid.innerHTML = '<div class="empty"><h3>No properties found</h3><p>' + msg + '</p>' +
+        '<div class="row"><button class="btn btn-navy" type="button" id="clearBtn">Clear filters</button>' +
+        '<a class="btn btn-ghost" target="_blank" rel="noopener" href="' + waLink("Hello Prime Haven, I'm looking for a property" + (state.kind ? " (" + state.kind + ")" : "") + " but couldn't find one on the site.") + '">Ask us on WhatsApp</a></div></div>';
+      note.textContent = "No properties match your filters.";
+    } else {
+      grid.innerHTML = list.map(cardHTML).join("");
+      wireImages(grid);
+      note.textContent = "Showing " + list.length + " of " + PROPERTIES.length + " properties.";
+    }
+    $("#savedCount").textContent = "(" + favs.length + ")";
+  }
+
+  /* ---------- Controls ---------- */
+  var fLoc = $("#fLoc"), fType = $("#fType"), fBudget = $("#fBudget"), budgetOut = $("#budgetOut"), kw = $("#kw");
+  var chips = $$(".chip[data-type]");
+  var savedChip = $("#savedChip");
+
+  function configureBudget() {
+    var cfg = BUDGET[state.type];
+    if (!cfg) {
+      fBudget.disabled = true;
+      fBudget.min = 0; fBudget.max = 100; fBudget.step = 1; fBudget.value = 100;
+      budgetOut.textContent = "Choose a type first";
+      state.budget = null;
+      paintSlider();
+      return;
+    }
+    fBudget.disabled = false;
+    fBudget.min = cfg.min; fBudget.max = cfg.max; fBudget.step = cfg.step; fBudget.value = cfg.max;
+    state.budget = null;
+    updateBudgetLabel();
+  }
+  function paintSlider() {
+    var min = Number(fBudget.min), max = Number(fBudget.max), val = Number(fBudget.value);
+    fBudget.style.setProperty("--fill", ((val - min) / (max - min || 1) * 100) + "%");
+  }
+  function updateBudgetLabel() {
+    var cfg = BUDGET[state.type];
+    var val = Number(fBudget.value);
+    if (cfg && val >= cfg.max) { state.budget = null; budgetOut.textContent = "Any budget"; }
+    else if (cfg) { state.budget = val; budgetOut.textContent = "Up to " + compact(val) + cfg.unit; }
+    paintSlider();
+  }
+
+  function setType(t) {
+    if (state.type === t) return;
+    state.type = t;
+    fType.value = t;
+    chips.forEach(function (c) { c.setAttribute("aria-pressed", String(c.getAttribute("data-type") === t)); });
+    configureBudget();
+  }
+
+  fType.addEventListener("change", function () { setType(fType.value); render(); });
+  chips.forEach(function (c) {
+    c.addEventListener("click", function () { setType(c.getAttribute("data-type")); render(); });
+  });
+  fLoc.addEventListener("change", function () { state.loc = fLoc.value; render(); });
+  fBudget.addEventListener("input", function () { updateBudgetLabel(); render(); });
+  kw.addEventListener("input", function () { state.kw = kw.value.trim(); render(); });
+  savedChip.addEventListener("click", function () {
+    state.savedOnly = !state.savedOnly;
+    savedChip.setAttribute("aria-pressed", String(state.savedOnly));
+    render();
+  });
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function scrollTo(el) { el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }); }
+
+  $("#searchForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    render();
+    scrollTo($("#properties"));
+  });
+
+  function clearFilters() {
+    state.loc = "all"; state.kw = ""; state.kind = ""; state.savedOnly = false;
+    fLoc.value = "all"; kw.value = "";
+    savedChip.setAttribute("aria-pressed", "false");
+    state.type = "";            // force setType to re-run
+    setType("all");
+    render();
+  }
+
+  /* ---------- Grid events: favourite, photos, clear ---------- */
+  grid.addEventListener("click", function (e) {
+    var favBtn = e.target.closest(".fav");
+    var photoBtn = e.target.closest(".photo");
+    var clearBtn = e.target.closest("#clearBtn");
+
+    if (clearBtn) { clearFilters(); return; }
+
+    if (favBtn) {
+      var id = Number(favBtn.closest(".card").getAttribute("data-id"));
+      var idx = favs.indexOf(id);
+      if (idx > -1) favs.splice(idx, 1); else favs.push(id);
+      saveFavs();
+      if (state.savedOnly) { render(); return; }  // card may disappear
+      var on = isFav(id);
+      var p = PROPERTIES.filter(function (x) { return x.id === id; })[0];
+      favBtn.setAttribute("aria-pressed", String(on));
+      favBtn.setAttribute("aria-label", (on ? "Remove " : "Save ") + p.title + (on ? " from saved" : " to saved"));
+      $("#savedCount").textContent = "(" + favs.length + ")";
+      return;
+    }
+
+    if (photoBtn) {
+      var pid = Number(photoBtn.closest(".card").getAttribute("data-id"));
+      openLightbox(pid, photoBtn);
+    }
+  });
+
+  /* ---------- Property type tiles ---------- */
+  function updateTileCounts() {
+    $$(".type").forEach(function (t) {
+      var kind = t.getAttribute("data-kind");
+      var n = PROPERTIES.filter(function (p) { return p.kind === kind; }).length;
+      $("[data-count]", t).textContent = n ? n + (n > 1 ? " listings" : " listing") : "Ask us for plots";
+    });
+  }
+  $("#typesGrid").addEventListener("click", function (e) {
+    var tile = e.target.closest(".type");
+    if (!tile) return;
+    clearFilters();
+    state.kind = tile.getAttribute("data-kind");
+    render();
+    scrollTo($("#properties"));
+  });
+
+  /* ---------- Lightbox ---------- */
+  var lb = $("#lightbox"), lbImg = $("#lbImg"), lbCap = $("#lbCap");
+  var lbProp = null, lbIndex = 0, lastFocus = null;
+
+  function showPhoto(i) {
+    var n = lbProp.imgs.length;
+    lbIndex = (i + n) % n;
+    lbImg.src = lbProp.imgs[lbIndex].replace(/w=\d+/, "w=1600");
+    lbImg.alt = lbProp.title + " photo " + (lbIndex + 1);
+    lbCap.innerHTML = "<strong>" + esc(lbProp.title) + "</strong><span>" + naira(lbProp.price) + (lbProp.period || "") + " &middot; " + (lbIndex + 1) + "/" + n + "</span>";
+    $("#lbPrev").hidden = $("#lbNext").hidden = n < 2;
+  }
+  function openLightbox(id, trigger) {
+    lbProp = PROPERTIES.filter(function (p) { return p.id === id; })[0];
+    if (!lbProp) return;
+    lastFocus = trigger || document.activeElement;
+    showPhoto(0);
+    lb.classList.add("open");
+    document.body.style.overflow = "hidden";
+    $("#lbClose").focus();
+  }
+  function closeLightbox() {
+    lb.classList.remove("open");
+    document.body.style.overflow = "";
+    lbImg.src = "";
+    if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+  }
+  $("#lbClose").addEventListener("click", closeLightbox);
+  $("#lbPrev").addEventListener("click", function () { showPhoto(lbIndex - 1); });
+  $("#lbNext").addEventListener("click", function () { showPhoto(lbIndex + 1); });
+  lb.addEventListener("click", function (e) { if (e.target === lb) closeLightbox(); });
+  document.addEventListener("keydown", function (e) {
+    if (!lb.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") showPhoto(lbIndex - 1);
+    if (e.key === "ArrowRight") showPhoto(lbIndex + 1);
+  });
+
+  /* ---------- Header: shadow, mobile menu, smooth scroll ---------- */
+  var header = $(".site-header");
+  function onScroll() { header.classList.toggle("scrolled", window.scrollY > 10); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  var toggle = $("#menuToggle"), nav = $("#nav");
+  function setMenu(open) {
+    nav.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  }
+  toggle.addEventListener("click", function () { setMenu(toggle.getAttribute("aria-expanded") !== "true"); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && nav.classList.contains("open")) { setMenu(false); toggle.focus(); }
+  });
+  window.addEventListener("resize", function () { if (window.innerWidth > 860) setMenu(false); });
+
+  $$('a[href^="#"]').forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      var id = link.getAttribute("href");
+      if (id === "#top") {
+        e.preventDefault(); setMenu(false);
+        window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+        return;
+      }
+      var target = id.length > 1 && $(id);
+      if (!target) return;
+      e.preventDefault(); setMenu(false);
+      scrollTo(target);
+      history.replaceState(null, "", id);
+    });
+  });
+
+  $("#year").textContent = new Date().getFullYear();
+
+  /* ---------- Init ---------- */
+  configureBudget();
+  updateTileCounts();
+  render();
+})();
+</script>
+</body>
+</html>
